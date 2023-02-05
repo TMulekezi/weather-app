@@ -30,8 +30,9 @@ function createWeatherObject(jsonInfo) {
 }
 
 function changeDom(weatherObject) {
-    const title = document.querySelector(".title");
+    const title = document.querySelector("a");
     title.textContent = weatherObject.location;
+    title.href = `http://www.google.com/maps/search/${weatherObject.location}`;
     const timeDate = document.querySelector(".time-date");
     const time = convertDate(weatherObject.timeZone).toString().substring(0, 21);
     timeDate.textContent = time;
@@ -44,6 +45,8 @@ function changeDom(weatherObject) {
     
     const mainImage = document.querySelector(".main-data>img");
     mainImage.src = `http://openweathermap.org/img/wn/${weatherObject.icon}@2x.png`;
+
+    
 }
 
 function convertDate(offset) {
