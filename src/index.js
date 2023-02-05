@@ -75,4 +75,9 @@ searchButton.addEventListener("click",changeLocation);
 
 const newLocation = document.querySelector("input");
 newLocation.value = "Boston";
+newLocation.addEventListener("keydown", (event) => {
+    if (event.keyCode === 13) {
+        changeLocation();
+    }
+});
 changeLocation();
