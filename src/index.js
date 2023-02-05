@@ -1,6 +1,7 @@
 import './style.css';
 import WeatherObject from './weatherObject';
-
+import locationIcon from './images/locationIcon.svg';
+import searchIcon from './images/searchIcon.svg';
 async function fetchData(data) {
     const item = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${data}&appid=149cd3dd42a5e7846eafe9f596772ace`);
     const info = await item.json();
@@ -60,6 +61,14 @@ function convertDate(offset) {
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
+
+const locationImg = document.querySelector(".location>img");
+locationImg.src = locationIcon;
+
+const searchImg = document.querySelector(".search-bar>img");
+searchImg.src = searchIcon;
+
+
 const searchButton = document.querySelector(".search-bar>img");
 searchButton.addEventListener("click",changeLocation);
 
